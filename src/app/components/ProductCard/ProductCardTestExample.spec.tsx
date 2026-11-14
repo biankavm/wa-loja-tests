@@ -7,7 +7,7 @@ import { FavoritesProvider } from '../../State/FavoritesProvider'
 import ProductCard from './ProductCard'
 
 jest.mock('../../hooks/useIsProductFavorite', () => ({
-  useIsProductFavorite: jest.fn()
+  useIsProductFavorite: jest.fn(),
 }))
 
 describe('ProductCard', () => {
@@ -20,13 +20,13 @@ describe('ProductCard', () => {
 
     const priceWithDiscount = calculatePriceWithDiscount(
       Number(mockedProduct.preco),
-      mockedProduct.desconto
+      mockedProduct.desconto,
     )
 
     render(
       <FavoritesProvider>
         <ProductCard product={mockedProduct} setFavorites={() => {}} />
-      </FavoritesProvider>
+      </FavoritesProvider>,
     )
 
     expect(screen.getByText(`${desconto}% de desconto`)).toBeInTheDocument()
@@ -44,11 +44,11 @@ describe('ProductCard', () => {
     render(
       <FavoritesProvider>
         <ProductCard product={mockProducts[0]} setFavorites={setFavorites} />
-      </FavoritesProvider>
+      </FavoritesProvider>,
     )
 
     const button = screen.getByRole('button', {
-      name: /^Favoritar$/i
+      name: /Favoritar/i,
     })
 
     await userEvent.click(button)
@@ -64,11 +64,11 @@ describe('ProductCard', () => {
     render(
       <FavoritesProvider>
         <ProductCard product={mockProducts[0]} setFavorites={setFavorites} />
-      </FavoritesProvider>
+      </FavoritesProvider>,
     )
 
     const button = screen.getByRole('button', {
-      name: /^Favoritado$/i
+      name: /Favoritado/i,
     })
 
     await userEvent.click(button)
