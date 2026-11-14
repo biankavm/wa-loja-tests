@@ -31,8 +31,8 @@ describe('ProductCard', () => {
 
     expect(screen.getByText(`${desconto}% de desconto`)).toBeInTheDocument()
     expect(screen.getByText(nome)).toBeInTheDocument()
-    expect(screen.getByText(`De R$ ${preco}`)).toBeInTheDocument()
-    expect(screen.getByText(`Por R$ ${priceWithDiscount}`)).toBeInTheDocument()
+    expect(screen.getByText(`R$ ${preco}`)).toBeInTheDocument()
+    expect(screen.getByText(`R$ ${priceWithDiscount}`)).toBeInTheDocument()
     expect(screen.getByAltText(fotos[0].titulo)).toBeInTheDocument()
   })
 
@@ -48,7 +48,7 @@ describe('ProductCard', () => {
     )
 
     const button = screen.getByRole('button', {
-      name: /Adicionar aos favoritos/i
+      name: /^Favoritar$/i
     })
 
     await userEvent.click(button)
@@ -68,7 +68,7 @@ describe('ProductCard', () => {
     )
 
     const button = screen.getByRole('button', {
-      name: /Adicionado/i
+      name: /^Favoritado$/i
     })
 
     await userEvent.click(button)

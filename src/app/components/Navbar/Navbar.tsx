@@ -4,10 +4,10 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-md bg-light border-bottom border-body sticky-top">
+    <nav className="navbar navbar-expand-md bg-body border-bottom sticky-top">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
-          Vitrine WA
+        <a className="navbar-brand fw-bold" href="/">
+          Loja WA
         </a>
         <button
           className="navbar-toggler"
